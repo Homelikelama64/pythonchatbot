@@ -7,7 +7,35 @@ def clear():
 #                   Option 2
 
 def computerArchitecture():
-    print("")
+    print("""
+There are two types of computer architecture the Von Neumann and the Harvard architecture. 
+The Von Nuemann archietecture has the instructions with the data
+ storage while the Harvard architecture has them seperate.
+
+Von Nuemann Architecture
+
+                           ALU(Math/Data manipulation)
+                            |
+                            |
+Instructions/data  <--> Controll  ---------> out
+                        unit(with registers)
+                    	    |
+                            In
+
+Harvard Architecture
+
+				ALU( Math/Data manipulation)
+                      |
+                      |
+Instructions <------> Controll <---------->  Data
+                    Unit(with registers)
+                      |
+                      |
+                      |
+                    In / out""")
+    print(backMessage)
+    pause = input()
+    intro()
 
 #                   Option 1
 
@@ -16,8 +44,7 @@ def lsb():
     clear()
     print("""
     LSB is the least significant bit in a binary number
-	press 1 to go back
-	press 2 to go back to the start""")
+	press 1 to go back""")
     print(backMessage)
     pause = input()
     binarybaiscs()
