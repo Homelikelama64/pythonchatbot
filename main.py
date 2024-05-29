@@ -4,6 +4,50 @@ backMessage = "To go back Press anything"
 
 def clear():
     os.system('cls')
+#                   Option 3
+
+def computer_instructions():
+    print("""
+To start building a cpu first we have to understand what instructions we need for this computer to be 
+turing complete(can create its self)
+
+first im going to create the ALU
+	The ALU will read from 1 register at a time and store it in its own cach
+
+it will have 5 intstructions
+	ADD
+	SUB(Ran out of time to explain)
+	MULT
+
+we have 9 instructions
+	Const(load data into one register)
+
+	ADD(adds two registers)
+
+	SUB(subtacts two registers)
+
+	MULT(multiplys two registers)
+
+	Copy(copys the data from oen register to another)
+
+	Conditional copy(copys the data from oen register to
+	another if another register is ether: zero, non
+	zero,positive or negative)
+	
+	Jump(Moves the instruction point(where the
+	computere is reading from ram)
+
+	Load(loads some ram at the address of a register into
+	a register)
+
+	Store(Stores a register to ram at the adress of another 	register)
+
+How the Load and Store functions is dependant on wether you have the Von Neumann or the Harvard architecture
+
+When i was creating my own CPU in Logic World(logic simulating game) I Chose to go with the Von Nuemann
+archietecture. Instead of having a dedicated instruction pointer i just dedicated register 7 to the instruction pointer.""")
+    option = input()
+
 #                   Option 2
 
 def computerArchitecture():
@@ -14,7 +58,7 @@ The Von Nuemann archietecture has the instructions with the data
 
 Von Nuemann Architecture
 
-                           ALU(Math/Data manipulation)
+                ALU(Math/Data manipulation)
                             |
                             |
 Instructions/data  <--> Controll  ---------> out
@@ -38,6 +82,46 @@ Instructions <------> Controll <---------->  Data
     intro()
 
 #                   Option 1
+
+
+#addition
+def addition():
+    clear()
+    print("""
+To Explain how to add two numbers in binary lets take the simplest method
+any number plus 1, or counting. for one bit to turn on all prevous bits have to be on when the counter is pulsed. here is an example.
+  0001(3)(a)
++0011(b)
+---------
+	1
+ 0011
+
+  1
+0010
+  
+0100
+
+------
+=0100(4)
+
+here is some sudo code :
+
+while a != 0 {
+	for a in a.bits {
+		if b[a.index] == on {
+			a.leftshift
+			b[a.index] == off
+		}
+		if b[a.index] == off {
+			b[a.index] == on
+			a == off
+		}
+	}
+}""")
+    print(backMessage)
+    pause = input()
+    binarybaiscs()
+
 
 # Least signifgant bit
 def lsb():
@@ -123,19 +207,22 @@ every Digit in base 2 is 2 times the amout as the last digit. The formula would 
 Thats the basics of binary
 	For what bitshifting is Press 1
 	For what the AND operator is press 2
-	For how to multiply two numbers press 3
-	For LSB press 4
-	To go back press 5""")
+	For how to addition press 3
+	For how to multiply two numbers press 4
+	For LSB press 5
+	To go back press 6""")
     option = input()
     if option == "1":
         bitshifting()
     elif option == "2":
         andoperator()
     elif option == "3":
-        multiplication()
+        addition()
     elif option == "4":
-        lsb()
+        multiplication()
     elif option == "5":
+        lsb()
+    elif option == "6":
         intro()
     else:
         clear()
