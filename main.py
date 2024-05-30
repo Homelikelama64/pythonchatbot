@@ -1,12 +1,148 @@
 import os
+from random import *
 
 backMessage = "To go back Press anything"
+
+N1 = "1"
+N2 = "2"
+N3 = "3"
+N4 = "4"
+N5 = "5"
+N6 = "6"
+N7 = "7"
+N8 = "8"
+N9 = "9"
 
 def clear():
     os.system('cls')
 #                   Option 3
 
+def secret1():
+    clear()
+    print("Nothings here")
+    option = input()
+    if option == "Secret":
+        secret2()
+    intro()
+
+def secret2():
+    clear()
+    print("No seriously theres nothing here")
+    option = input()
+    if option == "Secret":
+        secret3()
+    intro()
+    
+def secret3():
+    clear()
+    print("ok, maybe theres something")
+    option = input()
+    if option == "Secret":
+        secret4()
+    intro()
+
+def secret4():
+    clear()
+    print("I lied there is nothing")
+    option = input()
+    if option == "Secret":
+        secret5()
+    intro()
+
+def secret5():
+    clear()
+    print("Ok you have some dedication")
+    option = input()
+    if option == "Secret":
+        secret6()
+    intro()
+
+
+def secret6():
+    clear()
+    print("Nothings here")
+    option = input()
+    if option == "Secret":
+        secret7()
+    intro()
+
+def secret7():
+    clear()
+    print("No seriously theres nothing here")
+    option = input()
+    if option == "Secret":
+        secret8()
+    intro()
+    
+def secret8():
+    clear()
+    print("ok, maybe theres something")
+    option = input()
+    if option == "Secret":
+        secret9()
+    intro()
+
+def secret9():
+    clear()
+    print("I lied there is nothing")
+    option = input()
+    if option == "Secret":
+        secret10()
+    intro()
+
+def secret10():
+    clear()
+    print("Wow You Have ALOT of dedication")
+    option = input()
+    if option == "Secret":
+        secret6()
+    intro()
+
+def secret11():
+    clear()
+    print("""Fine i give up heres the secret Ok heres the secret:
+^ ^
+| |
+___/""")
+    option = input()
+    if option == """^ ^
+| |
+___/""":
+        secret12()
+    intro()
+
+def secret12():
+    clear()
+    print("""Ok Hears the Real Secret:
+Potatoe""")
+    option = input()
+    if option == "Secret":
+        intro()
+    intro()
+
+def registers():
+    clear()
+    print("""
+Registers are temporary data storage that the instructions; set, modify and move around""")
+    print(backMessage)
+    pause = input()
+    computer_instructions()
+
+def ram():
+    clear()
+    print("""
+How a genral instruction would look like for 8bit ram and 16bit registers is the first 3 bits would be used to
+say what register the following data should be inputed into. The remaining 5bits will be used for declearing what instruction it is. 
+The following ram will be the instructions for the intruction. Here is an example for the const instruction putting 5 into register 1:
+00001001 00000000 00000101
+since its a 16bit number but we have 8bit ram for const we need to use three ram adresses for a const instruction. 
+You do not need to do it this way this is a way I have found to do instructions in a clean way""")
+    print(backMessage)
+    pause = input()
+    computer_instructions()
+
 def computer_instructions():
+    clear()
     print("""
 To start building a cpu first we have to understand what instructions we need for this computer to be 
 turing complete(can create its self)
@@ -45,12 +181,31 @@ we have 9 instructions
 How the Load and Store functions is dependant on wether you have the Von Neumann or the Harvard architecture
 
 When i was creating my own CPU in Logic World(logic simulating game) I Chose to go with the Von Nuemann
-archietecture. Instead of having a dedicated instruction pointer i just dedicated register 7 to the instruction pointer.""")
+archietecture. Instead of having a dedicated instruction pointer i just dedicated register 7 to the instruction pointer.
+
+Press 1 for what Registers are
+          
+Press 2 for what does the ram instructions look like in ram
+          
+Press 3 to return""")
     option = input()
+    if option == N1:
+        registers()
+    elif option == N2:
+        ram()
+    elif option == N3:
+        intro()
+    else:
+        clear()
+        print("Not an Option")
+        print(backMessage)
+        pause = input()
+        computer_instructions()
 
 #                   Option 2
 
 def computerArchitecture():
+    clear()
     print("""
 There are two types of computer architecture the Von Neumann and the Harvard architecture. 
 The Von Nuemann archietecture has the instructions with the data
@@ -106,17 +261,8 @@ any number plus 1, or counting. for one bit to turn on all prevous bits have to 
 
 here is some sudo code :
 
-while a != 0 {
-	for a in a.bits {
-		if b[a.index] == on {
-			a.leftshift
-			b[a.index] == off
-		}
-		if b[a.index] == off {
-			b[a.index] == on
-			a == off
-		}
-	}
+add = lambda x, y: x if y == 0 else add(x^y, (x&y) << 1)
+
 }""")
     print(backMessage)
     pause = input()
@@ -177,7 +323,9 @@ Here is a Diagram For Unsigned multiplication
 # Bit Sifting
 def bitshifting():
     clear()
-    print("Bitshifting is when you shift the bits in a binary number. say you got 01100(12) if you bitshift it 1 to the right it becomes 00110(6), shifting it to the left you get 11000(24). Notice that when you bitshift you ether double or half the value. using this we can use this to multiply using the shift and add method.")
+    print("""Bitshifting is when you shift the bits in a binary number.
+say you got 01100(12) if you bitshift it 1 to the right it becomes 00110(6), shifting it to the left you get 11000(24).
+Notice that when you bitshift you ether double or half the value. using this we can use this to multiply using the shift and add method.""")
     print(backMessage)
     pause = input()
     binarybaiscs()
@@ -204,25 +352,25 @@ Ten is represented like this 10 in base 10 but in base 2(Binary) Ten is represen
 =10.
 every Digit in base 2 is 2 times the amout as the last digit. The formula would be(starting at 0) 2^d to get how much that digit contributes in base 10.
 
-Thats the basics of binary
-	For what bitshifting is Press 1
-	For what the AND operator is press 2
-	For how to addition press 3
-	For how to multiply two numbers press 4
-	For LSB press 5
-	To go back press 6""")
+Thats the basics of binary""")
+    print(" For what bitshifting is Press " + N1)
+    print(" For what the AND operator is press " + N2)
+    print(" For how to add press " + N3)
+    print(" For how to multiply two numbers press " + N4)
+    print(" For LSB press " + N5)
+    print(" To go back press " + N6)
     option = input()
-    if option == "1":
+    if option == N1:
         bitshifting()
-    elif option == "2":
+    elif option == N2:
         andoperator()
-    elif option == "3":
+    elif option == N3:
         addition()
-    elif option == "4":
+    elif option == N4:
         multiplication()
-    elif option == "5":
+    elif option == N5:
         lsb()
-    elif option == "6":
+    elif option == N6:
         intro()
     else:
         clear()
@@ -236,19 +384,22 @@ Thats the basics of binary
 #intro
 def intro():
     clear()
-    print("""
-Intro: What do you want to Learn About
+    print("Intro: What do you want to Learn About")
 
-Press 1 for : How Binary works and various binary operations
+    print("\nPress "+ N1 + " for : How Binary works and various binary operations")
 
-Press 2 for : For the two types of Computer Architure(CISC,RISC)
+    print("\nPress "+ N2 +" for : For the two types of Computer Architure(Von Nuemann,Harvard Architecture)")
 
-Press 3 for : Going About Creating Your Own CPU""")
+    print("\nPress "+ N3 +" for : Final Info need for Creating Your Own CPU")
     option = input()
-    if option == "1":
+    if option == N1:
         binarybaiscs()
-    elif option == "2":
+    elif option == N2:
         computerArchitecture()
+    elif option == N3:
+        computer_instructions()
+    elif option == "Secret":
+        secret1()
     else:
         clear()
         print("Not an Option")
